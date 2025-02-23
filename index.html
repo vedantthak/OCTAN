@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore India</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: lightskyblue;
+            padding: 15px 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .navbar .logo {
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+        }
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .navbar ul li {
+            margin: 0 15px;
+        }
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .navbar ul li a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columns */
+            gap: 10px; /* Reduced gap */
+            padding: 10px; /* Reduced padding */
+            margin: 0 auto;
+            max-width: 95%; /* Increased width */
+        }
+        .place {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            background: white;
+            padding: 20px; /* Increased size */
+        }
+        .place:hover {
+            transform: scale(1.05);
+        }
+        .place img {
+            width: 100%;
+            height: 250px; /* Increased height */
+            object-fit: cover;
+            border-radius: 10px;
+            transition: 0.3s ease-in-out;
+        }
+        .place:hover img {
+            filter: brightness(70%);
+        }
+        .place-info {
+            margin-top: 10px;
+        }
+        .read-more {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px; /* Increased button size */
+            background: lightblue;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px; /* Bigger text */
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .read-more:hover {
+            background: #0096FF;
+        }
+        footer {
+            background: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        @media (max-width: 992px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+                max-width: 95%;
+            }
+        }
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+            }
+            .navbar ul {
+                flex-direction: column;
+                padding: 10px 0;
+            }
+            .container {
+                grid-template-columns: 1fr;
+                max-width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Explore India</div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <div class="place">
+            <img src="gateway of india.jpg" alt="Gateway of India">
+            <div class="place-info">
+                <h3>Gateway of India, Mumbai</h3>
+                <p>An iconic arch-monument built in the early 20th century in Mumbai.</p>
+                <span class="read-more" onclick="showMoreInfo('Gateway of India')">Read More</span>
+            </div>
+        </div>
+        <div class="place">
+            <img src="tajmahal.jpg" alt="Taj Mahal">
+            <div class="place-info">
+                <h3>Taj Mahal, Agra</h3>
+                <p>A UNESCO World Heritage site and a symbol of love built by Mughal Emperor Shah Jahan.</p>
+                <span class="read-more" onclick="showMoreInfo('Taj Mahal')">Read More</span>
+            </div>
+        </div>
+        <div class="place">
+            <img src="golden temple.jpg" alt="Golden Temple">
+            <div class="place-info">
+                <h3>Golden Temple, Amritsar</h3>
+                <p>The holiest shrine in Sikhism, known for its golden architecture and serene surroundings.</p>
+                <span class="read-more" onclick="showMoreInfo('Golden Temple')">Read More</span>
+            </div>
+        </div>
+        <div class="place">
+            <img src="mysore palace.jpg" alt="Mysore Palace">
+            <div class="place-info">
+                <h3>Mysore Palace, Karnataka</h3>
+                <p>A historic palace featuring Indo-Saracenic architecture and vibrant illumination at night.</p>
+                <span class="read-more" onclick="showMoreInfo('Mysore Palace')">Read More</span>
+            </div>
+        </div>
+        <div class="place">
+            <img src="ellora.jpg" alt="Ellora Caves">
+            <div class="place-info">
+                <h3>Ellora Caves, Maharashtra</h3>
+                <p>A UNESCO World Heritage site with rock-cut temples representing Hindu, Buddhist, and Jain traditions.</p>
+                <span class="read-more" onclick="showMoreInfo('Ellora Caves')">Read More</span>
+            </div>
+        </div>
+        <div class="place">
+            <img src="ajantha caves.jpg" alt="Ajanta Caves">
+            <div class="place-info">
+                <h3>Ajanta Caves, Maharashtra</h3>
+                <p>An ancient Buddhist cave complex renowned for its exquisite frescoes and sculptures.</p>
+                <span class="read-more" onclick="showMoreInfo('Ajanta Caves')">Read More</span>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2025 Explore India | Designed by Vedant</p>
+    </footer>
+
+    <script>
+        function showMoreInfo(place) {
+            let wikiLinks = {
+                "Gateway of India": "https://en.wikipedia.org/wiki/Gateway_of_India",
+                "Taj Mahal": "https://en.wikipedia.org/wiki/Taj_Mahal",
+                "Golden Temple": "https://en.wikipedia.org/wiki/Golden_Temple",
+                "Mysore Palace": "https://en.wikipedia.org/wiki/Mysore_Palace",
+                "Ellora Caves": "https://en.wikipedia.org/wiki/Ellora_Caves",
+                "Ajanta Caves": "https://en.wikipedia.org/wiki/Ajanta_Caves"
+            };
+            window.open(wikiLinks[place], "_blank");
+        }
+    </script>
+</body>
+</html>
